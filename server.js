@@ -22,10 +22,14 @@ client.on('ready', () => {
 client.on('message', msg => {
 
     //Bot to submit amount of money every 5 minutes
+    //activate using !cv
     if (msg.content == '!cv') {
         msg.channel.send('Activated')
         setInterval(() => {
-            callKraken().then(res => {
+            callKraken('XXLMZEUR','XXLM').then(res => {
+
+                //Example of embed. Add more line and field for others.
+                //Refer to the documentation https://discordjs.guide/popular-topics/embeds.html
                 const embed = new MessageEmbed()
                     .setTitle('Update Crypto!')
                     .addFields(
