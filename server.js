@@ -16,11 +16,11 @@ server.listen(PORT, () => console.log('Server running on port ', PORT))
 
 client.on('ready', () => {
     console.log('Bot is up')
+    client.channels.cache.get('794497414299254797').send('Bot is ready! Hit !cv to activate the bot')
 })
 
 
 client.on('message', msg => {
-
     //Bot to submit amount of money every 5 minutes
     //activate using !cv
     if (msg.content == '!cv') {
