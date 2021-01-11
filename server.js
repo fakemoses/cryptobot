@@ -39,6 +39,20 @@ client.on('message', msg => {
                     )
                 msg.channel.send(embed)
             })
+            //Unicorn
+            callKraken('UNIEUR','UNI').then(res => {
+
+                //Example of embed. Add more line and field for others.
+                //Refer to the documentation https://discordjs.guide/popular-topics/embeds.html
+                const embed = new MessageEmbed()
+                    .setTitle('Update Crypto!')
+                    .addFields(
+                        { name: 'Total Money in €: \n', value: res.totalMoney, inline: false },
+                        { name: 'Total Money in UNI: \n', value: res.myMoney, inline: false },
+                        { name: 'Exchange Rate 1 UNI to Euro: \n', value: res.currentValue, inline: false }
+                    )
+                msg.channel.send(embed)
+            })
         }, 60000*5)
     }
 })
